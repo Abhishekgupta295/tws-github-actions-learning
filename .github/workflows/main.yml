@@ -1,0 +1,20 @@
+#this is work flow name 
+name: Hello
+
+# this workflow will be trigger to run because of this 
+
+on: 
+    push: 
+        branches: [main]
+
+#jobs which will run inside this workflow 
+jobs:
+    greet:
+        # this is runner where job is run, every job need runner to run
+        runs-on: ubuntu-latest
+        steps:
+            - name: say hello to all users
+              run: echo 'hi users! kaise ho !!'
+            - name: say hello to runner
+              run: echo 'hi #USER from Abhishek '
+              
