@@ -16,5 +16,5 @@ jobs:
             - name: say hello to all users
               run: echo 'hi users! kaise ho !!'
             - name: say hello to runner
-              run: echo 'hi #USER from Abhishek '
+              run: echo 'hi $USER from Abhishek '
               
