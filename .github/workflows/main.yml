@@ -3,9 +3,7 @@ name: Hello
 
 # this workflow will be trigger to run because of this 
 
-on: 
-    push: 
-        branches: [main]
+on: workflow_dispatch
 
 #jobs which will run inside this workflow 
 jobs:
