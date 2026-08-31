@@ -1,7 +1,8 @@
 name: CICD
 
 # Manual Click Workflow (Delivery) execute when clicked 
-on: workflow_dispatch
+on: 
+ workflow_dispatch:
    inputs:
       environment:
              description: this is environment value where this workflow willl run
