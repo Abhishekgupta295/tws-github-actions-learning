@@ -35,6 +35,7 @@ jobs:
         - name: setting up the testing
           run: echo "Throup JEST we tested"
   deploy:
+     if: inputs.environment == 'dev'
      needs: [test, build]
      runs-on: ubuntu-latest
      steps:
