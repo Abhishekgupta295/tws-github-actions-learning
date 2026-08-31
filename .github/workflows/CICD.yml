@@ -4,23 +4,26 @@ name: CICD
 on: workflow_dispatch
 
 jobs:
-
+   # Every job need runner , that is called parallesim 
   code:
      runs-on: ubuntu-latest
      steps:
         - name: setting up the code
           run: echo "Code is settuped successfully"
   build:
+     needs: code
      runs-on: ubuntu-latest
      steps:
         - name: setting up the build
           run: echo "Code is builded using docker"
   test:
      runs-on: ubuntu-latest
+     needs: [build]
      steps:
         - name: setting up the testing
           run: echo "Throup JEST we tested"
   deploy:
+     needs: [test, build]
      runs-on: ubuntu-latest
      steps:
         - name: setting up the deployment
