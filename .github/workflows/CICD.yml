@@ -1,0 +1,27 @@
+name: CICD
+
+# Manual Click Workflow (Delivery) execute when clicked 
+on: workflow_dispatch
+
+jobs:
+
+  code:
+     runs-on: ubuntu-latest
+     steps:
+        - name: setting up the code
+          run: echo "Code is settuped successfully"
+  build:
+     runs-on: ubuntu-latest
+     steps:
+        - name: setting up the build
+          run: echo "Code is builded using docker"
+  test:
+     runs-on: ubuntu-latest
+     steps:
+        - name: setting up the testing
+          run: echo "Throup JEST we tested"
+  deploy:
+     runs-on: ubuntu-latest
+     steps:
+        - name: setting up the deployment
+          run: echo "WE did single clikc deploy"
