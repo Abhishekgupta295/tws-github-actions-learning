@@ -2,6 +2,17 @@ name: CICD
 
 # Manual Click Workflow (Delivery) execute when clicked 
 on: workflow_dispatch
+   inputs:
+      environment:
+             description: this is environment value where this workflow willl run
+             default: 'dev'
+             required: true
+             type : choice
+             options:
+                 - dev
+                 - prod
+                 - staging
+    
 
 jobs:
    # Every job need runner , that is called parallesim 
