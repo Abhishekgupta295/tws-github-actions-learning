@@ -3,7 +3,12 @@ name: Hello
 
 # this workflow will be trigger to run because of this 
 
-on: workflow_dispatch
+on: 
+   push:
+     branches: [main]
+     paths: 
+       - "**.html"
+       - "**.yml"
 
 #jobs which will run inside this workflow 
 jobs:
