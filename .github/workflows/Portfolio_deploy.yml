@@ -1,0 +1,36 @@
+name: Portfolio
+
+on: 
+    push:
+        branches: [main]
+    workflow_dispatch:    #along with direct push deployment , we also added manual workflow dispatch 
+
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write        
+
+jobs:
+    
+    deploy:
+        runs-on: ubuntu-latest
+        environment:
+             name: github-page
+             url: ${{ steps.deployment.outputs.page_url }} # below steps ko deploy krne k baad jo output milega usmese url milega
+        steps:
+
+            - name: Checking out portfoliocode from our this repository to GA using prebuild action
+              uses : actions/checkout@v7
+
+            - name : setting up github pages , like creating environment using metadata
+              uses : actions/configure-pages@v4
+            
+            - name: Upload  static artifact, which are basically static files like images etc
+              uses: actions/upload-pages-artifact@v4
+              with:
+                  path: '.'
+
+
+            - name: Deploy to GitHub Pages and make it live
+              uses: actions/deploy-pages@v4  
