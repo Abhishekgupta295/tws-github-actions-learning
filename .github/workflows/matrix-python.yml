@@ -9,14 +9,19 @@ on:
 jobs:
     validate : 
         runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false # flase means if one matrix(verion)job fails it does not cancel other jobs, in case of true 
+           # it will cancel other jobs 
+            matrix:
+                python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
         steps:
             - name: checking out the code
               uses : actions/checkout@v7
 
-            - name : setting up the python 
+            - name : setting up the python ${{ matrix.python-version}}
               uses: actions/setup-python@v5
               with :
-                python-version: "3.13"
+                python-version: ${{ matrix.python-version}}
                 
             - name: installing requirements
               run: pip install -r requirements.txt
