@@ -13,7 +13,7 @@ jobs:
             fail-fast: false # flase means if one matrix(verion)job fails it does not cancel other jobs, in case of true 
            # it will cancel other jobs 
             matrix:
-                python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
+                python-version: ["3.12", "3.8", "3.9", "3.10", "3.11"]
         steps:
             - name: checking out the code
               uses : actions/checkout@v7
