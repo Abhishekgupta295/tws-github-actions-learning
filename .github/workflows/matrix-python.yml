@@ -1,0 +1,27 @@
+name: pyhton-lint
+
+# lint means basically checking the syntax of the code
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    runs-on: ubuntu-latest
+    steps:
+        - name: checking out the code
+          uses : actions/checkout@v7
+
+        - name : setting up the python 
+          uses: actions/setup-python@v5
+          with :
+            python-version: "3.13"
+            
+        - name: installing requirements
+          run: pip install -r requirements.txt
+
+        - name: run the linter
+          run: flake8 app.py
+
+
+        
