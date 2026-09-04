@@ -1,0 +1,13 @@
+name : deploy flask app
+
+on : 
+    workflow_dispatch:
+jobs:
+    deploy:
+        runs-on: self-hosted
+        steps:
+            - name : checking out the code
+              uses : actions/checkout@v7
+              
+            - name : deploy with docker compose
+              run : docker compose up -d --build
