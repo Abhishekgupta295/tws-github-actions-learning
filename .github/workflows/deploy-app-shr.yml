@@ -5,6 +5,8 @@ on :
 jobs:
     deploy:
         runs-on: self-hosted
+        env:
+            DOCKERHUB_USERNAME : ${{ vars.DOCKERHUB_USERNAME }}
         steps:
             - name : checking out the code
               uses : actions/checkout@v7
