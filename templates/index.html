@@ -1,181 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevOps Zero To Hero</title>
 
-    <title>GitHub Actions</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+body{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+color:#e0e0e0
+}
 
-        body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+.container{text-align:center;padding:2rem;max-width:640px}
 
-            background: linear-gradient(
-                135deg,
-                #0d1117,
-                #161b22,
-                #21262d
-            );
+h1{
+font-size:2.5rem;
+background:linear-gradient(90deg,#00d2ff,#7b2ff7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:.5rem
+}
 
-            font-family: -apple-system, BlinkMacSystemFont,
-                "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+.badge{
+display:inline-block;
+margin:1rem 0;
+padding:.4rem 1.2rem;
+border:1px solid #7b2ff7;
+border-radius:999px;
+font-size:.9rem;
+color:#c4b5fd
+}
 
-            color: #e6edf3;
-        }
+.pipeline{
+margin-bottom:1.5rem;
+font-size:.9rem;
+color:#9ca3af
+}
 
-        .container {
-            width: 90%;
-            max-width: 750px;
-            text-align: center;
-            padding: 2.5rem;
-        }
+.cards{
+display:flex;
+gap:1rem;
+justify-content:center;
+flex-wrap:wrap
+}
 
-        h1 {
-            font-size: 2.7rem;
-            margin-bottom: 0.7rem;
+.card{
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.1);
+border-radius:12px;
+padding:1.4rem;
+min-width:150px
+}
 
-            background: linear-gradient(
-                90deg,
-                #58a6ff,
-                #a371f7
-            );
+.card span{
+display:block;
+font-size:.7rem;
+color:#9ca3af;
+margin-bottom:.4rem;
+letter-spacing:.1em
+}
 
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .subtitle {
-            color: #8b949e;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .badge {
-            display: inline-block;
-
-            padding: 0.45rem 1.2rem;
-            margin-bottom: 2.2rem;
-
-            border: 1px solid #30363d;
-            border-radius: 999px;
-
-            background: rgba(255, 255, 255, 0.04);
-
-            color: #58a6ff;
-
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-        }
-
-        .cards {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .card {
-            flex: 1;
-            min-width: 180px;
-
-            padding: 1.6rem 1.4rem;
-
-            background: rgba(255, 255, 255, 0.05);
-
-            border: 1px solid rgba(255, 255, 255, 0.1);
-
-            border-radius: 14px;
-
-            transition: transform 0.25s ease,
-                        border-color 0.25s ease,
-                        background 0.25s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-
-            border-color: #58a6ff;
-
-            background: rgba(88, 166, 255, 0.08);
-        }
-
-        .card span {
-            display: block;
-
-            font-size: 0.75rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: 0.1em;
-
-            color: #8b949e;
-
-            margin-bottom: 0.5rem;
-        }
-
-        .card strong {
-            font-size: 1.2rem;
-
-            color: #f0f6fc;
-        }
-
-        .footer {
-            margin-top: 2rem;
-
-            font-size: 0.8rem;
-
-            color: #6e7681;
-        }
-    </style>
+.card strong{
+font-size:1.2rem;
+color:#f9fafb
+}
+</style>
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h1>GitHub Actions by Abhishek</h1>
+<h1>DevOps Zero To Hero [DevSecOps Live]</h1>
+<div class="badge">Josh Batch 10 (USA Edition BOOOM)</div>
 
-        <p class="subtitle">
-            Learning CI/CD through automation
-        </p>
+<div class="pipeline">
+Built • Tested • Linted • Deployed via GitHub Actions
+</div>
 
-        <div class="badge">
-            Continuous Integration & Deployment
-        </div>
+<div class="cards">
+<div class="card">
+<span>Framework</span>
+<strong>Flask 3.1</strong>
+</div>
 
-        <div class="cards">
+<div class="card">
+<span>Runtime</span>
+<strong>Python 3.14</strong>
+</div>
 
-            <div class="card">
-                <span>Workflow</span>
-                <strong>GitHub Actions</strong>
-            </div>
+<div class="card">
+<span>Deploy</span>
+<strong>AWS ECS</strong>
+</div>
 
-            <div class="card">
-                <span>Trigger</span>
-                <strong>Push to Main</strong>
-            </div>
+<div class="card">
+<span>CI/CD</span>
+<strong>GitHub Actions</strong>
+</div>
+</div>
 
-            <div class="card">
-                <span>Runner</span>
-                <strong>Ubuntu Latest</strong>
-            </div>
-
-        </div>
-
-        <div class="footer">
-            Automate • Test • Deploy
-        </div>
-
-    </div>
+</div>
 
 </body>
 </html>
