@@ -3,8 +3,9 @@ name: pyhton-lint
 # lint means basically checking the syntax of the code
 
 on:
-    push:
-        branches: [main]
+  workflow_dispatch:
+    #push:
+        #branches: [main]
 
 jobs:
     validate : 

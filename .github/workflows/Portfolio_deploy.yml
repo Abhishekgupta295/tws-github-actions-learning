@@ -1,8 +1,8 @@
 name: Portfolio
 
 on: 
-    push:
-        branches: [main]
+    #push:
+       # branches: [main]
     workflow_dispatch:    #along with direct push deployment , we also added manual workflow dispatch 
 
 
