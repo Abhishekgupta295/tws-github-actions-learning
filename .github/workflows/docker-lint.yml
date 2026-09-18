@@ -1,0 +1,18 @@
+# scan the docker file for issues and CVEs ie. common vulne
+name : Docker-scan
+
+on : 
+    workflow_call:
+
+jobs:
+    docker-scan:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checking out the code
+              uses : actions/checkout@v7
+
+            - name : Validate the docker file
+              uses: hadolint/hadolint-action@v3.1.0
+              with:
+                dockerfile: Dockerfile
+                
