@@ -1,0 +1,22 @@
+# useed trivy to scan the image for cves
+name : Image Scanner
+
+on : 
+    workflow_call:
+
+jobs:
+    iamge-scan:
+        runs-on: ubuntu-latest
+        steps:
+             
+             - name : Login to Docker Hub
+               uses : docker/login-action@v3
+               with :
+                username : ${{ vars.DOCKERHUB_USERNAME }}
+                password : ${{ secrets.DOCKERHUB_TOKEN }}
+
+             -  name: Run Trivy vulnerability scanner
+                uses: aquasecurity/trivy-action@v0.36.0
+                with :
+                     severity: 'CRITICAL,HIGH'
+                     exit-code: '1'
