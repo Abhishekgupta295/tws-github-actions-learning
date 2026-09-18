@@ -1,0 +1,24 @@
+# dependencies , packages , modules etc will be scanned ito check vulnerabilities, issues etc
+# pip audit - for python
+name : dependencies-scan
+
+on:
+    workflow_call:
+
+jobs:
+    dependencies-scan:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checking out the code
+              uses : actions/checkout@v7
+
+            - name : setting up the python 3.12
+              uses: actions/setup-python@v5
+              with :
+                python-version: "3.12"
+
+            - name : Install pip audit
+              run: pip install pip-audit
+
+            - name : Running pip-audit to do dependency scan
+              run : pip-audit -r requirements.txt  # will basically scan(audit) all the packages written in requirements.txt
