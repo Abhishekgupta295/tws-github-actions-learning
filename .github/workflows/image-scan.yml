@@ -9,6 +9,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
              
+             - name: checking out the code
+               uses : actions/checkout@v7
+
              - name : Login to Docker Hub
                uses : docker/login-action@v3
                with :
@@ -19,5 +22,6 @@ jobs:
                 uses: aquasecurity/trivy-action@v0.36.0
                 with :  
                      image-ref: ${{ vars.DOCKERHUB_USERNAME }}/github-actions-app:${{ github.sha }}
-                     severity: 'CRITICAL,HIGH'
+                     severity: 'CRITICAL,HIGH' # incase of critical vul we need change images
                      exit-code: '1'
+                     trivyignorefile: ${{ github.workspace }}/.trivyignore
