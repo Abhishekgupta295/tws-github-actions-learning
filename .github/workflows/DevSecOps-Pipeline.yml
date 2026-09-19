@@ -1,0 +1,21 @@
+# this is a devsecops pipeline which connect all the workflows
+name : DevSecOps End to End Pipeline
+
+on : 
+    workflow_dispatch:
+
+jobs:
+    code-quality:
+        uses : ./.github/workflows/code-quality.yml
+
+    secrets-scan:
+        uses : ./.github/workflows/secrets-scan.yml
+     
+    dependencies-scan:
+        uses : ./.github/workflows/dependencies-scan.yml
+
+    docker-scan:
+        uses : ./.github/workflows/docker-lint.yml  
+        
+    iamge-scan:
+        uses : ./.github/workflows/image-scan.yml
