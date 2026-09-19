@@ -24,4 +24,4 @@ jobs:
                      image-ref: ${{ vars.DOCKERHUB_USERNAME }}/github-actions-app:${{ github.sha }}
                      severity: 'CRITICAL,HIGH' # incase of critical vul we need change images
                      exit-code: '1'
-                     trivyignorefile: ${{ github.workspace }}/.trivyignore
+                     trivyignores: ${{ github.workspace }}/.trivyignore
