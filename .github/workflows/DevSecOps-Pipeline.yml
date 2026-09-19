@@ -6,17 +6,32 @@ on :
         branches: [main]
 
 jobs:
+
+    # CI(Continuous Integration with security scanning)
     code-quality:
         uses : ./.github/workflows/code-quality.yml
 
     secrets-scan:
+        needs : code-quality
         uses : ./.github/workflows/secrets-scan.yml
      
     dependencies-scan:
+        needs : secrets-scan
         uses : ./.github/workflows/dependencies-scan.yml
 
     docker-scan:
+        needs : dependencies-scan
         uses : ./.github/workflows/docker-lint.yml  
         
-    iamge-scan:
+    image-scan:
+        needs : docker-scan
         uses : ./.github/workflows/image-scan.yml
+
+
+    # Build after security scanning is done    
+
+    build :
+        needs : [code-quality, secrets-scan, dependencies-scan, docker-scan, image-scan]
+        uses : ./.github/workflows/docker-build-push.yml
+        secrets: inherit # this will inherit all the secrets from parent workflow    
+
