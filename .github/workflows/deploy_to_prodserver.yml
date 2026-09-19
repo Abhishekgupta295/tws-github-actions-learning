@@ -17,4 +17,4 @@ jobs:
                     key: ${{ secrets.EC2_SSH_PRIVATE_KEY }} # Private key of the EC2 instance from key pair
                     script: |
                         echo "Deploying to production server"
-                        mkdir devops
+                        mkdir -p devops

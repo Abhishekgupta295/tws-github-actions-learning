@@ -39,5 +39,14 @@ jobs:
         needs : build
         uses : ./.github/workflows/image-scan.yml
         secrets: inherit
+
+
+    # CD - Deploy to prod server
+    
+    deploy :
+        needs : image-scan
+        uses : ./.github/workflows/deploy_to_prodserver.yml
+        secrets: inherit
+
         
 
