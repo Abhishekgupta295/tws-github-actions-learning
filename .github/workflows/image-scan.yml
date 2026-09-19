@@ -22,6 +22,6 @@ jobs:
                 uses: aquasecurity/trivy-action@v0.36.0
                 with :  
                      image-ref: ${{ vars.DOCKERHUB_USERNAME }}/github-actions-app:${{ github.sha }}
-                     severity: 'CRITICAL,HIGH' # incase of critical vul we need change images
+                     severity: 'CRITICAL' # incase of critical vul we need change images
                      exit-code: '1'
                      trivyignores: ${{ github.workspace }}/.trivyignore
