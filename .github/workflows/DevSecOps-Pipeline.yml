@@ -35,7 +35,9 @@ jobs:
     # Once image is build we will scan it for vulnerabilities using trivy   
     
     image-scan:
+         
         needs : build
         uses : ./.github/workflows/image-scan.yml
         secrets: inherit
+        
 
