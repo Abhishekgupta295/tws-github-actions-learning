@@ -50,4 +50,4 @@ jobs:
                  echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username ${{ vars.DOCKERHUB_USER }} --password-stdin
                  cd ~/devops && docker compose down && docker compose up -d --build --force-recreate --pull always        
                 # exporting username and tag for login to docker hub , | will give left side output to right side as input, so we can use it 
-                # for docker login, so basically here "docker token" is treated as standard input for the --password flag
+                # for docker login, so basically here "docker token" is treated as standard input for the --password flagdsd
