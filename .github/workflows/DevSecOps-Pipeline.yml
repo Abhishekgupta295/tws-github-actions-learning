@@ -37,4 +37,5 @@ jobs:
     image-scan:
         needs : build
         uses : ./.github/workflows/image-scan.yml
+        secrets: inherit
 
