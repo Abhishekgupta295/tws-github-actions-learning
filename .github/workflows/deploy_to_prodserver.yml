@@ -43,7 +43,7 @@ jobs:
               uses: appleboy/ssh-action@v1.0.3
               with:
                 host: ${{ secrets.EC2_SSH_HOST }}
-                username: ${{ secrets.EC2_SSH_USER }}
+                username: ${{ secrets.EC2_SSH_USERNAME }}
                 key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
                 script: | 
                  echo "Running App"
