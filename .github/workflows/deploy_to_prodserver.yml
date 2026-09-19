@@ -1,0 +1,20 @@
+# this will deploy the safe secure tested code to production server through SSH.
+name: Deploy to production server
+
+on : 
+    workflow_call:
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        
+        steps:
+            - name : deploy to production server
+              uses: appleboy/ssh-action@v1
+              with:
+                    host: ${{ secrets.EC2_SSH_HOST }} # Public IP address of the EC2 instance
+                    username: ${{ secrets.EC2_SSH_USERNAME }} # Username of the EC2 instance
+                    key: ${{ secrets.EC2_SSH_PRIVATE_KEY }} # Private key of the EC2 instance from key pair
+                    script: |
+                        echo "Deploying to production server"
+                        mkdir devops
