@@ -1,20 +1,44 @@
+
 name: AWS OIDC Challenge
+
 on: workflow_dispatch
+
 permissions:
   id-token: write
   contents: read
+
 jobs:
   test-aws-oidc:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: aws-actions/configure-aws-credentials@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Debug OIDC Claims
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const token = await core.getIDToken('sts.amazonaws.com');
+
+            const payload = JSON.parse(
+              Buffer.from(token.split('.')[1], 'base64url').toString()
+            );
+
+            console.log('OIDC Audience:', payload.aud);
+            console.log('OIDC Subject:', payload.sub);
+            console.log('Repository:', payload.repository);
+            console.log('Ref:', payload.ref);
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::324634181198:role/github-oidc-challenge-role
           aws-region: ap-south-1
 
-      - name: Debug GitHub OIDC Claims
-        uses: github/actions-oidc-debugger@v1    
-      - run: aws sts get-caller-identity
-      - run: aws s3 ls
-      
+      - name: Verify AWS Identity
+        run: aws sts get-caller-identity
+
+      - name: List S3 Buckets
+        run: aws s3 ls
+```
