@@ -12,5 +12,9 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::324634181198:role/github-oidc-challenge-role
           aws-region: ap-south-1
+
+      - name: Debug GitHub OIDC Claims
+        uses: github/actions-oidc-debugger@v1    
       - run: aws sts get-caller-identity
       - run: aws s3 ls
+      
