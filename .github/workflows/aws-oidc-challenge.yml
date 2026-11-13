@@ -1,5 +1,5 @@
 name: AWS OIDC Challenge
-on: workflow_disptach
+on: workflow_dispatch
 
 permissions:
   id-token: write
