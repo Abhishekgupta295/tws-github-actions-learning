@@ -1,5 +1,5 @@
 name: AWS OIDC Challenge
-on: push
+on: workflow_disptach
 
 permissions:
   id-token: write
@@ -39,4 +39,3 @@ jobs:
 
       - name: List S3 Buckets
         run: aws s3 ls
-```
