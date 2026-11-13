@@ -1,6 +1,4 @@
-
 name: AWS OIDC Challenge
-
 on: workflow_dispatch
 
 permissions:
